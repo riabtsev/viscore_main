@@ -500,8 +500,8 @@ function PortfolioBlock() {
     <div className="rounded-[20px] p-[22px] border border-black/[0.05] flex flex-col gap-3.5 bg-white">
       <div className="flex justify-between items-center">
         <div className="text-[0.65rem] font-bold uppercase tracking-widest text-[#9A8E85]">Портфолио</div>
-        <Link href="/gallery" className="bg-transparent border-none font-semibold text-[0.72rem] flex items-center gap-0.5 cursor-pointer" style={{ color: ACCENT }}>
-          Все работы <IconChevron />
+        <Link href="/cabinet" className="bg-transparent border-none font-semibold text-[0.72rem] flex items-center gap-0.5 cursor-pointer" style={{ color: ACCENT }}>
+          В кабинет <IconChevron />
         </Link>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">

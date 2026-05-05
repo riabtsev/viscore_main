@@ -803,13 +803,6 @@ export default function LandingPage() {
                   </h2>
                   <div className="flex flex-wrap gap-3">
                     <ShimmerButton href="#modules">Начать обучение →</ShimmerButton>
-                    <a
-                      href="/gallery"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-semibold text-sm"
-                      style={{ background: '#1A1917', border: '1px solid #2A2925', color: '#6A6055' }}
-                    >
-                      Галерея работ
-                    </a>
                   </div>
                 </div>
               </div>

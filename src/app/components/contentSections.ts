@@ -2,7 +2,6 @@ export const footerNavigation = {
   app: [
     { name: 'Модули', href: '/#modules' },
     { name: 'О платформе', href: '/about' },
-    { name: 'Галерея работ', href: '/gallery' },
   ],
 };
 
