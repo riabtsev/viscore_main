@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Подключаем Satoshi из public/@fonts */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/@fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/@fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/@fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/@fonts/Satoshi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #FF4F1F;
+  --color-body: #64748B;
+  --color-bodydark: #AEB7C0;
+  --color-stroke: #E2E8F0;
+  --font-sans: 'Satoshi', system-ui, sans-serif;
+  --breakpoint-2xsm: 375px;
+  --breakpoint-xsm: 425px;
+  --breakpoint-3xl: 2000px;
+  --shadow-3xl: 0 35px 60px -15px rgba(0,0,0,0.3);
+}
+
+html, body {
+  background: #ffffff;
+  color: #111827;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Утилиты безскроллбара как в оригинале */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Плавный скролл и мелкие GPU-твики для предотвращения микролагов */
+html { scroll-behavior: smooth; }
+.gpu-smooth { transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
+.cv-auto { content-visibility: auto; contain-intrinsic-size: 1px 1000px; }
+.will-change-transform { will-change: transform; }
+.contain-paint { contain: layout paint; }
+
+/* Shimmer-анимация для акцентного заголовка */
+.vc-shimmer-text {
+  position: relative;
+  /* Глубокий тон + ещё более узкий мягкий блик */
+  background: linear-gradient(90deg,
+    rgba(17,24,39,0.98) 0%,
+    rgba(17,24,39,0.98) 49%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(17,24,39,0.98) 51%,
+    rgba(17,24,39,0.98) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: vcShimmer 18s cubic-bezier(0.4, 0, 0.2, 1) infinite; /* редкий и плавный проход */
+  will-change: background-position;
+}
+
+@keyframes vcShimmer {
+  0%, 70% { background-position: -200% 0; }
+  100%    { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vc-shimmer-text {
+    animation: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    color: #111827; /* gray-900 */
+  }
+}
